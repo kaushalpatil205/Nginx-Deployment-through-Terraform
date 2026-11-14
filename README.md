@@ -6,14 +6,7 @@
 [![Nginx](https://img.shields.io/badge/Nginx-Web%20Server-009639.svg?logo=nginx)](https://nginx.org/)
 
 ---
-
-## 👤 Student & Assignment Information
-
-- **Student Name:** Kaushal Patil
-- **HeroVired Student ID:** Kaushal Patil_13408
-- **Email ID:** patilkaushal89@gmail.com
-- **Assignment Title:** EC2 Nginx Deployment with Terraform (DevOps Skills Test 3 Reattempt)
-- **Repository Name:** `Nginx-Deployment-through-Terraform`
+- *Title:** EC2 Nginx Deployment with Terraform 
 
 ---
 

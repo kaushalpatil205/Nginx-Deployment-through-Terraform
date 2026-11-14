@@ -6,7 +6,7 @@
 [![Nginx](https://img.shields.io/badge/Nginx-Web%20Server-009639.svg?logo=nginx)](https://nginx.org/)
 
 ---
-- *Title:** EC2 Nginx Deployment with Terraform 
+- Title:EC2 Nginx Deployment with Terraform 
 
 ---
 

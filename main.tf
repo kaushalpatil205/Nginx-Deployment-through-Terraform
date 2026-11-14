@@ -17,11 +17,22 @@ provider "aws" {
 }
 
 # ==============================================================================
-# 1. Query Existing Default VPC (Do NOT create custom VPC/Subnet/IGW)
+# 1. Query Existing Default VPC & Default Subnet (Do NOT create custom VPC/Subnet/IGW)
 # ==============================================================================
 
+# Default VPC in the region
 data "aws_vpc" "default" {
   default = true
+}
+
+# Default Subnet in the Default VPC (Adopts existing default subnet or restores it)
+resource "aws_default_subnet" "default_az1" {
+  availability_zone = "${var.aws_region}a"
+
+  tags = {
+    Name        = "${var.project_name}-default-subnet"
+    ManagedBy   = "Terraform"
+  }
 }
 
 # ==============================================================================
@@ -92,6 +103,7 @@ resource "aws_security_group" "nginx_sg" {
 resource "aws_instance" "nginx_server" {
   ami                         = data.aws_ami.ubuntu_20_04.id
   instance_type               = var.instance_type
+  subnet_id                   = aws_default_subnet.default_az1.id
   vpc_security_group_ids      = [aws_security_group.nginx_sg.id]
   associate_public_ip_address = true
   key_name                    = var.key_name != "" ? var.key_name : null
